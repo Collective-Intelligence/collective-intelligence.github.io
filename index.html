@@ -25,16 +25,19 @@
 			function logout() {
 				api.revokeToken((err, res) => {
 					Cookies.remove('access_token');
+					document.location = "index.html";
 				});
 			}
+
+			function onLoad() {}
 		</script>
 	</head>
 
-	<body>
+	<body onload="onLoad();">
 
-		<!--<input id="accesstoken" type="password" placeholder="Access Token">-->
 		<button onclick="login()">Login</button> |
 		<button onclick="logout()">Sign out</button>
+		<br /><p id="a"></p>
 
 	</body>
 
