@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Collective Intelligence</title>
+		<meta charset="utf8" />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.steemjs.com/lib/latest/steemconnect.min.js"></script>
+		<script src="https://unpkg.com/cross-fetch/dist/cross-fetch.js"></script>
+
+		<script src="./libraries/sc-sdk/sc2.js"></script>
+
+		<script>
+			var api = SC2Initialize({
+				app: "ci-sc",
+				callbackURL: 'https://collective-intelligence.github.io/',
+				scope: ['vote', 'comment']
+			});
+
+			function login() {
+				window.location = api.getLoginURL();
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<!--<input id="accesstoken" type="password" placeholder="Access Token">-->
+		<button onclick="login()">Login</button> |
+		<button>Sign out</button>
+
+	</body>
+
+</html>
