@@ -9,13 +9,14 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://unpkg.com/cross-fetch/dist/cross-fetch.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
 		<script src="./libraries/sc-sdk/sc2.js"></script>
+
+		<script src="assets/scripts/parser.js"></script>
 
 		<script>
 			var api = SC2Initialize({
 				app: "ci-sc",
-				callbackURL: 'https://collective-intelligence.github.io/',
+				callbackURL: 'https://collective-intelligence.github.io/login.html',
 				scope: ['vote', 'comment']
 			});
 
