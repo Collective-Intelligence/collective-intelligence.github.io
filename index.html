@@ -5,9 +5,10 @@
 		<title>Collective Intelligence</title>
 		<meta charset="utf8" />
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.steemjs.com/lib/latest/steemconnect.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://unpkg.com/cross-fetch/dist/cross-fetch.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
 		<script src="./libraries/sc-sdk/sc2.js"></script>
 
@@ -21,6 +22,11 @@
 			function login() {
 				window.location = api.getLoginURL();
 			}
+			function logout() {
+				api.revokeToken((err, res) => {
+					Cookies.remove('access_token');
+				});
+			}
 		</script>
 	</head>
 
@@ -28,7 +34,7 @@
 
 		<!--<input id="accesstoken" type="password" placeholder="Access Token">-->
 		<button onclick="login()">Login</button> |
-		<button>Sign out</button>
+		<button onclick="logout()">Sign out</button>
 
 	</body>
 
