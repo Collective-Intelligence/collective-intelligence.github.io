@@ -1,4 +1,12 @@
-<script>
-	Cookies.set('access_token', URLParser.search(document.location.href)['access_token'][0], {expires: 7});
-	document.location = index.html;
-</script>
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+		<script src="assets/scripts/parser.js"></script>
+
+		<script>
+			Cookies.set('access_token', URLParser.search(document.location.href)['access_token'][0], {expires: 7});
+			document.location = "index.html";
+		</script>
+	</head>
+</html>
