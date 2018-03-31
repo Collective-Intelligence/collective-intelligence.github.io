@@ -16,7 +16,7 @@
 		<script>
 			var api = SC2Initialize({
 				app: "ci-sc",
-				callbackURL: 'https://collective-intelligence.github.io/login.html',
+				callbackURL: 'https://collective-intelligence.github.io/',
 				scope: ['vote', 'comment']
 			});
 
@@ -26,11 +26,16 @@
 			function logout() {
 				api.revokeToken((err, res) => {
 					Cookies.remove('access_token');
+					Cookies.remove('username');
 					document.location = "index.html";
 				});
 			}
 
-			function onLoad() {}
+			function onLoad() {
+				if (Cookies.get("username") != undefined) {
+					$("#user").html(`Logged in as ${Cookies.get("username")}.`);
+				}
+			}
 		</script>
 	</head>
 
@@ -38,7 +43,7 @@
 
 		<button onclick="login()">Login</button> |
 		<button onclick="logout()">Sign out</button>
-		<br /><p id="a"></p>
+		<br /><p id="user"></p>
 
 	</body>
 

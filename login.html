@@ -6,6 +6,7 @@
 
 		<script>
 			Cookies.set('access_token', URLParser.search(document.location.href)['access_token'][0], {expires: 7});
+			Cookies.set('username', URLParser.search(document.location.href)['username'][0], {expires: 7});
 			document.location = "index.html";
 		</script>
 	</head>
