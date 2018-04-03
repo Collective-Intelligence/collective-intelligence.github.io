@@ -5,8 +5,35 @@
 		<script src="./assets/scripts/parser.js"></script>
 
 		<script>
-			Cookies.set('access_token', URLParser.search(document.location.href)['access_token'][0], {expires: 7});
-			Cookies.set('username', URLParser.search(document.location.href)['username'][0], {expires: 7});
+
+			// Converts the GET params into an object
+			var info = {
+				"access_token": URLParser.search(document.location.href)['access_token'][0],
+				"username": URLParser.search(document.location.href)['username'][0]
+			}
+
+			// Handles Cookies
+			Cookies.set('access_token', info["access_token"], {expires: 7});
+			Cookies.set('username', info["username"], {expires: 7});
+
+			// Sends access token and username to the server via websockets
+			async function conn() {
+				// Creates a new connection to the server
+				var ws = await new WebSocket("ws://localhost:8765");
+				// It waits 1 second then gives the connection
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve(ws);
+					}, 2000);
+				});
+			}
+				
+			conn().then(ws => {
+				// Sends the JSON after the Promise has been resolved
+				ws.send(JSON.stringify(info));
+			});
+
+			// Redirects user to home page
 			document.location = "index.html";
 		</script>
 	</head>
