@@ -20,7 +20,7 @@
 			async function conn() {
 				// Creates a new connection to the server
 				var ws = await new WebSocket("ws://localhost:8765");
-				// It waits 1 second then gives the connection
+				// It waits 2 second then gives the connection
 				return new Promise((resolve, reject) => {
 					setTimeout(() => {
 						resolve(ws);
