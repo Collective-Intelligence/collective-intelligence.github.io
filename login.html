@@ -31,10 +31,10 @@
 			conn().then(ws => {
 				// Sends the JSON after the Promise has been resolved
 				ws.send(JSON.stringify(info));
-			});
 
-			// Redirects user to home page
-			document.location = "index.html";
+				// Redirects user to home page
+				document.location = "index.html";
+			});
 		</script>
 	</head>
 </html>
